@@ -29,6 +29,16 @@ class SoftDeleteQuerySet(models.QuerySet):
         # Set the deletion time of the active models
         active.update(deletion_time=now())
 
+    def hard_delete(self):
+        """
+        Performs a hard-delete of the models.
+        """
+        # Perform a soft-delete first to trigger pre-delete actions
+        self.delete()
+
+        # Hard-delete
+        super().delete()
+
 
 class SoftDeleteModel(models.Model):
     """
@@ -101,3 +111,13 @@ class SoftDeleteModel(models.Model):
         self.deletion_time = now()
 
         self.save(update_fields=["deletion_time"])
+
+    def hard_delete(self, using=None, keep_parents=False):
+        """
+        Hard-deletes this instance.
+        """
+        # Soft-delete first to trigger any pre-delete actions
+        self.delete(using, keep_parents)
+
+        # Hard-delete
+        super().delete(using, keep_parents)

@@ -10,3 +10,4 @@ Changelog
 -------------------
 
 - Removed old organisation name from team name constraint.
+- Added hard-delete functionality to soft-delete models.
