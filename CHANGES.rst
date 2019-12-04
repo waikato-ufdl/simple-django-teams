@@ -5,3 +5,8 @@ Changelog
 -------------------
 
 - Initial release
+
+0.0.2 (????-??-??)
+-------------------
+
+- Removed old organisation name from team name constraint.
