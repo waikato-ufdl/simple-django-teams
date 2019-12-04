@@ -53,8 +53,8 @@ class Team(TeamOwnedModel, SoftDeleteModel):
 
     class Meta(SoftDeleteModel.Meta):
         constraints = [
-            # Ensure that each active organisation has a unique name
-            models.UniqueConstraint(name="unique_active_organisation_names",
+            # Ensure that each active team has a unique name
+            models.UniqueConstraint(name="unique_active_team_names",
                                     fields=["name"],
                                     condition=SoftDeleteModel.active_Q)
         ]
