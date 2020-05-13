@@ -66,7 +66,8 @@ class Team(TeamOwnedModel, SoftDeleteModel):
         # Delete the memberships to this team
         self.memberships.all().delete()
 
-    def pre_delete_bulk(self, query_set):
+    @classmethod
+    def pre_delete_bulk(cls, query_set):
         # Delete the memberships to this team
         from ._Membership import Membership
         Membership.objects.filter(team__in=query_set).delete()

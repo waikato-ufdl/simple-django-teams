@@ -90,7 +90,8 @@ class SoftDeleteModel(models.Model):
         """
         pass
 
-    def pre_delete_bulk(self, query_set):
+    @classmethod
+    def pre_delete_bulk(cls, query_set):
         """
         Can be overridden to perform other actions before a set
         of models are deleted.
