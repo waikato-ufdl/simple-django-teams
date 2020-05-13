@@ -28,7 +28,7 @@ setup(
         '': 'teams/src'
     },
     packages=find_packages(where="teams/src"),
-    version="0.0.1",
+    version="0.0.2",
     author='Corey Sterling',
     author_email='coreytsterling@gmail.com',
     install_requires=[
