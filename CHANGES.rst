@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.0.3 (2020-06-11)
+-------------------
+
+- Added custom query-set managers for Team and Membership models.
+- Added utility method to get the active members of a Team.
+
 0.0.2 (2020-05-14)
 -------------------
 

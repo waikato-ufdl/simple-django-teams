@@ -51,6 +51,8 @@ class Team(TeamOwnedModel, SoftDeleteModel):
                                      through_fields=("team", "user"),
                                      related_name="teams")
 
+    objects = TeamQuerySet.as_manager()
+
     class Meta(SoftDeleteModel.Meta):
         constraints = [
             # Ensure that each active team has a unique name
@@ -58,6 +60,16 @@ class Team(TeamOwnedModel, SoftDeleteModel):
                                     fields=["name"],
                                     condition=SoftDeleteModel.active_Q)
         ]
+
+    def active_members(self):
+        """
+        Gets the query-set of active members of this team.
+
+        :return:    The query-set of active members (users).
+        """
+        from ._Membership import Membership
+
+        return self.members.filter(memberships__in=Membership.objects.active())
 
     def get_owning_team(self):
         return self

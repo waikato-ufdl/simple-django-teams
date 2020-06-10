@@ -1,8 +1,15 @@
 from django.db import models
 from django.conf import settings
 
-from ..mixins import SoftDeleteModel, TeamOwnedModel
+from ..mixins import SoftDeleteModel, TeamOwnedModel, SoftDeleteQuerySet
 from ..apps import APP_NAME
+
+
+class MembershipQuerySet(SoftDeleteQuerySet):
+    """
+    Custom query-set for memberships.
+    """
+    pass
 
 
 class Membership(TeamOwnedModel, SoftDeleteModel):
@@ -29,6 +36,8 @@ class Membership(TeamOwnedModel, SoftDeleteModel):
                                        (PERMISSION_ADMIN, "Admin")
                                    ],
                                    default=PERMISSION_READ)
+
+    objects = MembershipQuerySet.as_manager()
 
     class Meta(TeamOwnedModel.Meta, SoftDeleteModel.Meta):
         constraints = [
