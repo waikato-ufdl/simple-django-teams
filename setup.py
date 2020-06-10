@@ -25,9 +25,9 @@ setup(
     ],
     license='MIT',
     package_dir={
-        '': 'teams/src'
+        '': 'src'
     },
-    packages=find_packages(where="teams/src"),
+    packages=find_packages(where="src"),
     version="0.0.3",
     author='Corey Sterling',
     author_email='coreytsterling@gmail.com',
