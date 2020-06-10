@@ -22,6 +22,6 @@ Github
 Steps:
 * start new release (version: `vX.Y.Z`)
 * enter release notes, i.e., significant changes since last release
-* upload `wai.annotations-X.Y.Z.tar.gz` previously generated with `setup.py`
+* upload `simple-django-teams-X.Y.Z.tar.gz` previously generated with `setup.py`
 * publish
 
