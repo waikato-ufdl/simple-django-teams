@@ -39,6 +39,13 @@ class SoftDeleteQuerySet(models.QuerySet):
         # Hard-delete
         super().delete()
 
+    def reinstate(self):
+        # Only reinstate deleted models
+        active = self.deleted()
+
+        # Clear the deletion time of the active models
+        active.update(deletion_time=None)
+
 
 class SoftDeleteModel(models.Model):
     """
@@ -122,3 +129,16 @@ class SoftDeleteModel(models.Model):
 
         # Hard-delete
         super().delete(using, keep_parents)
+
+    def reinstate(self):
+        """
+        Un-deletes the object.
+        """
+        # Can't un-delete an object which isn't deleted
+        if self.is_active():
+            return
+
+        # Clear the deletion time-stamp
+        self.deletion_time = None
+
+        self.save(update_fields=["deletion_time"])
