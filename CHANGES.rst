@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.0.4 (2020-07-21)
+-------------------
+
+- Added ability to reinstate soft-delete models.
+
 0.0.3 (2020-06-11)
 -------------------
 
