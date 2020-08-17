@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.0.5 (2020-08-17)
+-------------------
+
+- Soft-delete models no longer require a creator (for auto-created objects)
+
 0.0.4 (2020-07-21)
 -------------------
 

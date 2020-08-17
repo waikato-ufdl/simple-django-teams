@@ -56,7 +56,8 @@ class SoftDeleteModel(models.Model):
     creator = models.ForeignKey(settings.AUTH_USER_MODEL,
                                 on_delete=models.DO_NOTHING,
                                 related_name="+",
-                                editable=False)
+                                editable=False,
+                                null=True)
 
     # The creation date/time of the object
     creation_time = models.DateTimeField(auto_now_add=True,

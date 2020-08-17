@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('creation_time', models.DateTimeField(auto_now_add=True)),
                 ('deletion_time', models.DateTimeField(default=None, editable=False, null=True)),
                 ('permissions', models.CharField(choices=[('R', 'Read'), ('W', 'Write'), ('A', 'Admin')], default='R', max_length=1)),
-                ('creator', models.ForeignKey(editable=False, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL)),
+                ('creator', models.ForeignKey(editable=False, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL, null=True)),
             ],
             options={
                 'abstract': False,
@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('creation_time', models.DateTimeField(auto_now_add=True)),
                 ('deletion_time', models.DateTimeField(default=None, editable=False, null=True)),
                 ('name', models.CharField(max_length=200)),
-                ('creator', models.ForeignKey(editable=False, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL)),
+                ('creator', models.ForeignKey(editable=False, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL, null=True)),
                 ('members', models.ManyToManyField(related_name='teams', through='simple_django_teams.Membership', to=settings.AUTH_USER_MODEL)),
             ],
             options={
