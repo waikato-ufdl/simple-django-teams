@@ -15,6 +15,7 @@ class MembershipQuerySet(SoftDeleteQuerySet):
 class Membership(TeamOwnedModel, SoftDeleteModel):
     # Permission constants
     PERMISSION_READ = "R"
+    PERMISSION_EXECUTE = "X"
     PERMISSION_WRITE = "W"
     PERMISSION_ADMIN = "A"
 
@@ -32,6 +33,7 @@ class Membership(TeamOwnedModel, SoftDeleteModel):
     permissions = models.CharField(max_length=1,
                                    choices=[
                                        (PERMISSION_READ, "Read"),
+                                       (PERMISSION_EXECUTE, "Execute"),
                                        (PERMISSION_WRITE, "Write"),
                                        (PERMISSION_ADMIN, "Admin")
                                    ],
