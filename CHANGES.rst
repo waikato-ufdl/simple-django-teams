@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.0.6 (2020-08-24)
+-------------------
+
+- Added execute permission level to memberships.
+
 0.0.5 (2020-08-17)
 -------------------
 

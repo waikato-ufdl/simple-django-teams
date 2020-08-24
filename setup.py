@@ -28,7 +28,7 @@ setup(
         '': 'src'
     },
     packages=find_packages(where="src"),
-    version="0.0.5",
+    version="0.0.6",
     author='Corey Sterling',
     author_email='coreytsterling@gmail.com',
     install_requires=[
